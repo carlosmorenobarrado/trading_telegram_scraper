@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: telegram-session-pv
+spec:
+  capacity:
+    storage: 1Gi # Puedes ajustar el tamaño si lo necesitas, 1GB es suficiente para un archivo de sesión
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce # Solo puede ser montado como lectura/escritura por un nodo a la vez (típico para Minikube)
+  persistentVolumeReclaimPolicy: Retain # Retiene los datos incluso si el PV es eliminado (¡cuidado al limpiar!)
+  storageClassName: manual # Un nombre de clase de almacenamiento para que el PVC lo reclame
+  hostPath:
+    path: "/mnt/data/telegram-session" # <--- RUTA EN EL SISTEMA DE ARCHIVOS DE MINIKUBE

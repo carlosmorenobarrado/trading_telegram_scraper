@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: telegram-session-pvc
+spec:
+  storageClassName: manual # Debe coincidir con el storageClassName del PV
+  accessModes:
+    - ReadWriteOnce # Debe coincidir con el accessModes del PV
+  resources:
+    requests:
+      storage: 1Gi # Debe ser menor o igual a la capacidad del PV
