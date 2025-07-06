@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: telegram-scraper-cronjob
+spec:
+  schedule: "*/5 * * * *" # Cada 5 minutos. Ajusta esto a tu necesidad
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: telegram-scraper
+            image: tu-usuario-dockerhub/telegram-scraper:latest # ¡Reemplaza con tu imagen!
+            imagePullPolicy: Always # Asegura que siempre baje la última versión del código hardcodeado
+            # Ya no necesitamos 'envFrom' porque las credenciales están en el código
+            # Si el script telethon requiere un archivo .session persistente, seguirás necesitando un PersistentVolume
+            volumeMounts:
+             - name: telegram-session-storage
+               mountPath: /app/
+          restartPolicy: OnFailure
+          # volumes: # Si usas PersistentVolume
+          # - name: telegram-session-storage
+          #   persistentVolumeClaim:
+          #     claimName: telegram-scraper-pvc
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1

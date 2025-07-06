@@ -1,0 +1,35 @@
+name: Build and Push Telegram Scraper Docker Image # Nombre del flujo de trabajo
+
+on:
+  push:
+    branches:
+      - main # Dispara el workflow cada vez que se haga un push a la rama 'main' (o tu rama principal)
+    paths:
+      - 'telegram_scraper/**' # Solo se dispara si hay cambios en la carpeta telegram_scraper
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest # Ejecuta el trabajo en una máquina virtual Ubuntu
+
+    steps:
+      - name: Checkout repository # Paso 1: Clona tu repositorio
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx # Paso 2: Configura Buildx para construir imágenes eficientemente
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub # Paso 3: Inicia sesión en Docker Hub usando los secretos de GitHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build and push Docker image # Paso 4: Construye y sube la imagen
+        uses: docker/build-push-action@v5
+        with:
+          context: telegram_scraper/ # La carpeta donde está tu Dockerfile y código Python
+          push: true # Indica que la imagen debe ser subida
+          tags: carlosmoreno7/telegram-scraper:latest # ¡IMPORTANTE! Reemplaza con tu usuario de Docker Hub
+
+      - name: Verify pushed image # Paso 5 (Opcional): Verifica que la imagen fue subida
+        run: docker pull carlosmoreno7/telegram-scraper:latest # Reemplaza
