@@ -35,8 +35,6 @@ API_ID = 25407010
 API_HASH = '9e8c88514b9a18a9a0c9b408b667f2fd'
 PHONE_NUMBER = '+34616187287'
 SESSION_NAME = 'my_telegram_session' # Manteniendo el nombre de sesión solicitado
-
-
 # --- CONFIGURACIÓN DEL GRUPO Y TEMA ESPECÍFICOS ---
 TARGET_GROUP_ID = -1002383848783 # ¡Asegúrate de que este ID es el correcto para tu supergrupo!
 TARGET_TOPIC_NAME = "IDEAS CORTO PLAZO/AT"

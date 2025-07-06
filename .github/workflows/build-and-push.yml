@@ -27,8 +27,7 @@ jobs:
       - name: Build and push Docker image # Paso 4: Construye y sube la imagen
         uses: docker/build-push-action@v5
         with:
-          context: . #telegram_scraper/ # La carpeta donde está tu Dockerfile y código Python
-          file: ./telegram_scraper/Dockerfile
+          context: telegram_scraper/
           push: true # Indica que la imagen debe ser subida
           tags: carlosmoreno7/telegram-scraper:latest # ¡IMPORTANTE! Reemplaza con tu usuario de Docker Hub
 
