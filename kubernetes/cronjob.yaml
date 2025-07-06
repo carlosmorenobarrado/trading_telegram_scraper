@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
           - name: telegram-scraper
-            image: tu-usuario-dockerhub/telegram-scraper:latest # ¡Reemplaza con tu imagen!
+            image: carlosmoreno7/telegram-scraper:latest # ¡Reemplaza con tu imagen!
             imagePullPolicy: Always # Asegura que siempre baje la última versión del código hardcodeado
             # Ya no necesitamos 'envFrom' porque las credenciales están en el código
             # Si el script telethon requiere un archivo .session persistente, seguirás necesitando un PersistentVolume

@@ -6,12 +6,12 @@ WORKDIR /app
 
 # Copia los archivos de requerimientos e instala las dependencias
 # Las rutas son RELATIVAS al contexto (telegram_scraper/)
-COPY requirements.txt . # Antes: telegram_scraper/requirements.txt
+COPY requirements.txt . 
 RUN pip install --no-cache-dir -r requirements.txt --break-system-packages
 
 # Copia el código de tu aplicación
 # Las rutas son RELATIVAS al contexto (telegram_scraper/)
-COPY app.py . # Antes: telegram_scraper/app.py
+COPY app.py .
 
 # Comando para ejecutar la aplicación
 CMD ["python", "app.py"]

@@ -40,7 +40,7 @@ SESSION_NAME = 'my_telegram_session' # Manteniendo el nombre de sesión solicita
 TARGET_GROUP_ID = -1002383848783 # ¡Asegúrate de que este ID es el correcto para tu supergrupo!
 TARGET_TOPIC_NAME = "IDEAS CORTO PLAZO/AT"
 
-logging.info("Cargadas vars")
+logging.info("Cargadas variables")
 
 # Función auxiliar para serializar objetos datetime y bytes a JSON
 def json_serial(obj):
