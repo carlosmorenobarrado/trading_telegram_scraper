@@ -11,6 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt --break-system-packages
 # Copia el código de tu aplicación
 COPY app.py .
 
-# ¡CAMBIO CLAVE AQUÍ! Usa ENTRYPOINT para el intérprete y CMD para los argumentos
-ENTRYPOINT ["python"] # El intérprete de Python
-CMD ["/app/app.py"]   # Los argumentos para el intérprete (la ruta absoluta de tu script)
+# ¡CAMBIO CLAVE AQUÍ! Define ENTRYPOINT y CMD en "exec form"
+# Esto sobrescribe cualquier ENTRYPOINT preexistente de la imagen base
+# El comando final será /usr/local/bin/python /app/app.py
+ENTRYPOINT ["/usr/local/bin/python"] # Ruta absoluta al binario de Python
+CMD ["/app/app.py"]                   # Ruta absoluta a tu script como argumento
