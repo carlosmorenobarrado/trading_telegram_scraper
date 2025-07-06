@@ -5,16 +5,14 @@ FROM python:3.9-slim-buster
 WORKDIR /app
 
 # Copia los archivos de requerimientos e instala las dependencias
-COPY requirements.txt .
+# ¡CAMBIO CLAVE AQUÍ! Usa la ruta completa desde la raíz del contexto de construcción
+COPY telegram_scraper/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt --break-system-packages
 
 # Copia el código de tu aplicación
-COPY app.py .
+# ¡CAMBIO CLAVE AQUÍ! Usa la ruta completa desde la raíz del contexto de construcción
+COPY telegram_scraper/app.py . 
 
-# --- ¡CAMBIO CLAVE AQUÍ! ---
-# ENTRYPOINT es el binario de Python. Lo ejecutamos en formato "exec" para que sea el proceso principal.
-ENTRYPOINT ["python3"] 
-
-# CMD son los argumentos que se le pasan al ENTRYPOINT.
-# Aquí, le pasamos la ruta ABSOLUTA de tu script.
-CMD ["/app/app.py"]
+# Comando para ejecutar la aplicación
+# Usa la ruta absoluta, es más seguro.
+CMD ["python3", "/app/app.py"]
