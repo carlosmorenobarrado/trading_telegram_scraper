@@ -28,6 +28,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: . #telegram_scraper/ # La carpeta donde está tu Dockerfile y código Python
+          file: ./telegram_scraper/Dockerfile
           push: true # Indica que la imagen debe ser subida
           tags: carlosmoreno7/telegram-scraper:latest # ¡IMPORTANTE! Reemplaza con tu usuario de Docker Hub
 
