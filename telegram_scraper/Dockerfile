@@ -5,13 +5,12 @@ FROM python:3.9-slim-buster
 WORKDIR /app
 
 # Copia los archivos de requerimientos e instala las dependencias
-# Las rutas son RELATIVAS al contexto (telegram_scraper/)
-COPY requirements.txt . 
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt --break-system-packages
 
 # Copia el código de tu aplicación
-# Las rutas son RELATIVAS al contexto (telegram_scraper/)
 COPY app.py .
 
-# Comando para ejecutar la aplicación
-CMD ["python", "/app/app.py"]
+# ¡CAMBIO CLAVE AQUÍ! Usa ENTRYPOINT para el intérprete y CMD para los argumentos
+ENTRYPOINT ["python"] # El intérprete de Python
+CMD ["/app/app.py"]   # Los argumentos para el intérprete (la ruta absoluta de tu script)
