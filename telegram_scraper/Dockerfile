@@ -11,8 +11,10 @@ RUN pip install --no-cache-dir -r requirements.txt --break-system-packages
 # Copia el código de tu aplicación
 COPY app.py .
 
-# ¡CAMBIO CLAVE AQUÍ! Define ENTRYPOINT y CMD en "exec form"
-# Esto sobrescribe cualquier ENTRYPOINT preexistente de la imagen base
-# El comando final será /usr/local/bin/python /app/app.py
-ENTRYPOINT ["/usr/local/bin/python"] # Ruta absoluta al binario de Python
-CMD ["/app/app.py"]                   # Ruta absoluta a tu script como argumento
+# --- ¡CAMBIO CLAVE AQUÍ! ---
+# ENTRYPOINT es el binario de Python. Lo ejecutamos en formato "exec" para que sea el proceso principal.
+ENTRYPOINT ["python3"] 
+
+# CMD son los argumentos que se le pasan al ENTRYPOINT.
+# Aquí, le pasamos la ruta ABSOLUTA de tu script.
+CMD ["/app/app.py"]
