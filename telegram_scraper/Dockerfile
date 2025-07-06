@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt --break-system-packages
 COPY app.py .
 
 # Comando para ejecutar la aplicación
-CMD ["python", "app.py"]
+CMD ["python", "/app/app.py"]
