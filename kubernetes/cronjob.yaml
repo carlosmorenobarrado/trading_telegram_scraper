@@ -2,6 +2,9 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: telegram-scraper-cronjob
+  namespace: default # O el namespace que uses con ArgoCD
+  labels:
+    app: telegram-scraper
 spec:
   schedule: "*/5 * 1 * *" # O tu horario deseado
   jobTemplate:
