@@ -6,6 +6,8 @@ from telethon.sync import TelegramClient
 from telethon.tl.types import Channel, InputPeerChannel
 from telethon.tl.functions.channels import GetForumTopicsRequest
 import psycopg2
+
+
 DB_HOST = "192.168.1.237"
 DB_NAME = "criptodb"
 DB_USER = "admincar"

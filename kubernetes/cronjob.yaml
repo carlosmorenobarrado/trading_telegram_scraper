@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: telegram-scraper-cronjob
 spec:
-  schedule: "*/5 * * * *" # O tu horario deseado
+  schedule: "*/5 * 1 * *" # O tu horario deseado
   jobTemplate:
     spec:
       template:
@@ -17,7 +17,7 @@ spec:
                 name: telegram-scraper-secrets
             volumeMounts: # Monta el volumen persistente
             - name: telegram-session-storage
-              mountPath: /app/
+              mountPath: /app
           restartPolicy: OnFailure
           volumes: # Define el volumen que usará el PVC
           - name: telegram-session-storage
