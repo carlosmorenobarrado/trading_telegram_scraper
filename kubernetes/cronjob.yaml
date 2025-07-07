@@ -20,7 +20,7 @@ spec:
                 name: telegram-scraper-secrets
             volumeMounts: # Monta el volumen persistente
             - name: telegram-session-storage
-              mountPath: /app
+              mountPath: /var/telegram-session
           restartPolicy: OnFailure
           volumes: # Define el volumen que usará el PVC
           - name: telegram-session-storage

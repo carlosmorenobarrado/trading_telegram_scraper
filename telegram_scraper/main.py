@@ -6,7 +6,7 @@ from telethon.sync import TelegramClient
 from telethon.tl.types import Channel, InputPeerChannel
 from telethon.tl.functions.channels import GetForumTopicsRequest
 import psycopg2
-
+import os
 
 DB_HOST = "192.168.1.237"
 DB_NAME = "criptodb"
@@ -36,7 +36,8 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 API_ID = 25407010
 API_HASH = '9e8c88514b9a18a9a0c9b408b667f2fd'
 PHONE_NUMBER = '+34616187287'
-SESSION_NAME = 'my_telegram_session' # Manteniendo el nombre de sesión solicitado
+SESSION_DIR = "/var/telegram-session"
+SESSION_NAME = os.path.join(SESSION_DIR,'my_telegram_session') # Manteniendo el nombre de sesión solicitado
 
 
 # --- CONFIGURACIÓN DEL GRUPO Y TEMA ESPECÍFICOS ---

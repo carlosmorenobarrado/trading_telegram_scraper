@@ -11,4 +11,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain # Retiene los datos incluso si el PV es eliminado (¡cuidado al limpiar!)
   storageClassName: manual # Un nombre de clase de almacenamiento para que el PVC lo reclame
   hostPath:
-    path: "/mnt/data/telegram-session" # <--- RUTA EN EL SISTEMA DE ARCHIVOS DE MINIKUBE
+    path: "/var/telegram-session" 
