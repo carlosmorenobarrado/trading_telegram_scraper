@@ -8,6 +8,7 @@ from telethon.tl.functions.channels import GetForumTopicsRequest
 import psycopg2
 import os
 
+
 DB_HOST = "192.168.1.237"
 DB_NAME = "criptodb"
 DB_USER = "admincar"
