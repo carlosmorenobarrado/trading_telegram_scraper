@@ -9,6 +9,6 @@ COPY requirements.txt .
 # Instala las dependencias desde el archivo en /app
 RUN pip install -r requirements.txt 
 
-COPY telegram_scraper/main.py .
+COPY main.py .
 RUN ls -l /app
 CMD ["python", "main.py"]
